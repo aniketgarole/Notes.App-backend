@@ -25,9 +25,9 @@ app.listen(process.env.PORT, async()=> {
 
     try {
         await connection
-        res.send("Server is conncted to DB")
+        console.log("Server is conncted to DB")
     } catch (error) {
-        res.send("Could not connect to the DB")
+        console.log("Could not connect to the DB")
         console.log(error)
     }
 })
