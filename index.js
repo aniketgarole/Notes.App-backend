@@ -20,14 +20,21 @@ app.use("/notes", notesRouter)
 
 
 
-app.listen(process.env.PORT, async()=> {
-    console.log(`Server is running at port ${process.env.PORT}`)
+// app.listen(process.env.PORT, async()=> {
+//     console.log(`Server is running at port ${process.env.PORT}`)
 
-    try {
-        await connection
-        console.log("Server is conncted to DB")
-    } catch (error) {
-        console.log("Could not connect to the DB")
-        console.log(error)
-    }
+//     try {
+//         await connection
+//         console.log("Server is conncted to DB")
+//     } catch (error) {
+//         console.log("Could not connect to the DB")
+//         console.log(error)
+//     }
+// })
+
+
+connection().then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log("listening for requests");
+    })
 })
