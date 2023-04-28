@@ -3,8 +3,11 @@ const { connection } = require("./connect")
 const { userRouter } = require("./routes/User.routes")
 const { notesRouter } = require("./routes/Notes.routes")
 const { auth } = require("./middlewares/auth.middleware")
+const cors = require("cors")
+
 require("dotenv").config()
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 app.use("/users", userRouter)
